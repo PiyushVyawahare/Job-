@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.vyawpiy</groupId>
-	<artifactId>spring-boot-rest</artifactId>
+	<artifactId>job-app-backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-boot-rest</name>
+	<name>job-app-backend</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>

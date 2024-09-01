@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-SpringBootRestApplication<spring-boot-rest>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.vyawpiy.spring_boot_rest.SpringBootRestApplication",
+      "projectName": "spring-boot-rest",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
