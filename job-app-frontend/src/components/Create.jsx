@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { Typography, TextField, Button, Paper, Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import axiosInstance from "../configs/axiosConfig";
 const initial = { postId: "", postProfile: "", requiredExperience: 0, techStack: [], postDescription: "" };
 
 const Create = () => {
@@ -28,7 +28,7 @@ const Create = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
+    axiosInstance
       .post("http://localhost:8080/jobPost", form)
       .then((resp) => {
         console.log(resp.data);

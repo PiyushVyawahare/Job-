@@ -4,9 +4,9 @@ import EditIcon from "@mui/icons-material/Edit";
 import SearchIcon from "@mui/icons-material/Edit";
 
 import { Box, Card, Grid, InputAdornment, TextField, Typography } from "@mui/material";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axiosInstance from "../configs/axiosConfig";
 
 const Search = () => {
   const [query, setQuery] = useState("");
@@ -19,12 +19,15 @@ const Search = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const response = await axios.get(`http://localhost:8080/jobPost/search/${query}`);
+      const response = await axiosInstance.get(`http://localhost:8080/jobPost/search/${query}`, {
+        auth: { username: "rohit", password: "r@123" },
+      });
       setPost(response.data);
     };
     const fetchInitialPosts = async () => {
-      const response = await axios.get(`http://localhost:8080/jobPosts`);
+      const response = await axiosInstance.get(`http://localhost:8080/jobPosts`);
       setPost(response.data);
+      console.log("here");
     };
     fetchInitialPosts();
     if (query.length === 0) fetchInitialPosts();
@@ -33,7 +36,7 @@ const Search = () => {
 
   const handleDelete = (id) => {
     async function deletePost() {
-      await axios.delete(`http://localhost:8080/jobPost/${id}`);
+      await axiosInstance.delete(`http://localhost:8080/jobPost/${id}`);
     }
     deletePost();
     window.location.reload();

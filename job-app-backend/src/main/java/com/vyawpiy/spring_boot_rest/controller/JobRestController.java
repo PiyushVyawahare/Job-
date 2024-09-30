@@ -1,4 +1,4 @@
-package com.vyawpiy.spring_boot_rest;
+package com.vyawpiy.spring_boot_rest.controller;
 
 import com.vyawpiy.spring_boot_rest.model.JobPost;
 import com.vyawpiy.spring_boot_rest.service.JobService;
@@ -14,6 +14,7 @@ public class JobRestController {
     @Autowired
     private JobService service;
 
+    @CrossOrigin
     @GetMapping(path="jobPosts", produces = {"application/json"})
     public List<JobPost> getAllJobs() {
         return service.getAllJobs();

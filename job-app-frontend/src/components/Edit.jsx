@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Typography, TextField, Button, Paper, Box } from "@mui/material";
 import { useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
+import axiosInstance from "../configs/axiosConfig";
 
 const initial = {
   postId: "",
@@ -19,7 +19,7 @@ const Edit = () => {
 
   useEffect(() => {
     const fetchInitialPosts = async (id) => {
-      const response = await axios.get(`http://localhost:8080/jobPost/${id}`);
+      const response = await axiosInstance.get(`http://localhost:8080/jobPost/${id}`);
       console.log(response.data);
       setForm(response.data);
     };
@@ -28,7 +28,7 @@ const Edit = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
+    axiosInstance
       .put("http://localhost:8080/jobPost", form)
       .then((resp) => {
         console.log(resp.data);
